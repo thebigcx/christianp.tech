@@ -1,0 +1,20 @@
+li.project {
+	background: #2f2f2f;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.4);
+	border-radius: 50px;
+}
+
+li.project img {
+	transform: scale(0.8);
+	border: #171717 solid 7px;
+}
+
+li.project .projecttxt {
+	color: white;
+	font-size: 100px;
+	margin-left: 100px;
+}
