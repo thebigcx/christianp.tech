@@ -1,4 +1,7 @@
-var cubeRotation = 0.0;
+var cubeRotationX = 0.0;
+var cubeRotationY = 0.0;
+var projectionMatrix;
+const vertexCount = 36;
 
 main();
 
@@ -11,6 +14,18 @@ function main() {
     alert('Unable to initialize WebGL. Your browser or machine may not support it.');
     return;
   }
+
+  const fieldOfView = 45 * Math.PI / 180;
+  const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
+  const zNear = 0.1;
+  const zFar = 100.0;
+  const projectionMatrix = mat4.create();
+
+  mat4.perspective(projectionMatrix,
+                   fieldOfView,
+                   aspect,
+                   zNear,
+                   zFar);
 
 
   const vsSource = `
@@ -46,9 +61,55 @@ function main() {
       modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix'),
     },
   };
+
+  gl.useProgram(programInfo.program);
+
+  gl.uniformMatrix4fv(
+      programInfo.uniformLocations.projectionMatrix,
+      false,
+      projectionMatrix);
+
   const buffers = initBuffers(gl);
 
   var then = 0;
+
+  {
+    const numComponents = 3;
+    const type = gl.FLOAT;
+    const normalize = false;
+    const stride = 0;
+    const offset = 0;
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
+    gl.vertexAttribPointer(
+        programInfo.attribLocations.vertexPosition,
+        numComponents,
+        type,
+        normalize,
+        stride,
+        offset);
+    gl.enableVertexAttribArray(
+        programInfo.attribLocations.vertexPosition);
+  }
+  {
+    const numComponents = 4;
+    const type = gl.FLOAT;
+    const normalize = false;
+    const stride = 0;
+    const offset = 0;
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffers.color);
+    gl.vertexAttribPointer(
+        programInfo.attribLocations.vertexColor,
+        numComponents,
+        type,
+        normalize,
+        stride,
+        offset);
+    gl.enableVertexAttribArray(
+        programInfo.attribLocations.vertexColor);
+  }
+
+  gl.enable(gl.DEPTH_TEST);
+  gl.depthFunc(gl.LEQUAL);
 
   function render(now) {
     now *= 0.001;
@@ -108,12 +169,12 @@ function initBuffers(gl) {
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
 
   const faceColors = [
-    [1.0,  1.0,  1.0,  1.0],    // Front face: white
-    [1.0,  0.0,  0.0,  1.0],    // Back face: red
-    [0.0,  1.0,  0.0,  1.0],    // Top face: green
-    [0.0,  0.0,  1.0,  1.0],    // Bottom face: blue
-    [1.0,  1.0,  0.0,  1.0],    // Right face: yellow
-    [1.0,  0.0,  1.0,  1.0],    // Left face: purple
+    [1.0,  1.0,  1.0,  1.0],
+    [1.0,  0.0,  0.0,  1.0],
+    [0.0,  1.0,  0.0,  1.0],
+    [0.0,  0.0,  1.0,  1.0],
+    [1.0,  1.0,  0.0,  1.0],
+    [1.0,  0.0,  1.0,  1.0],
   ];
 
 
@@ -153,97 +214,41 @@ function initBuffers(gl) {
 }
 
 function drawScene(gl, programInfo, buffers, deltaTime) {
-  gl.clearColor(0.0, 0.0, 0.0, 0.0);  
-  gl.clearDepth(1.0);                 
-  gl.enable(gl.DEPTH_TEST);           
-  gl.depthFunc(gl.LEQUAL);            
-
+  gl.clearColor(0.0, 0.0, 0.0, 0.0);
 
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
+  cubeRotationY+=0.1;
+  cubeRotationX+=0.1;
 
-  const fieldOfView = 45 * Math.PI / 180;
-  const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
-  const zNear = 0.1;
-  const zFar = 100.0;
-  const projectionMatrix = mat4.create();
-
-  mat4.perspective(projectionMatrix,
-                   fieldOfView,
-                   aspect,
-                   zNear,
-                   zFar);
 
   const modelViewMatrix = mat4.create();
 
-  mat4.translate(modelViewMatrix,     
-                 modelViewMatrix,     
-                 [-0.0, 0.0, -6.0]);  
-  mat4.rotate(modelViewMatrix,  
-              modelViewMatrix,  
-              cubeRotation,     
-              [0, 0, 1]);       
-  mat4.rotate(modelViewMatrix,  
-              modelViewMatrix,  
-              cubeRotation * .7,
-              [0, 1, 0]);       
+  mat4.translate(modelViewMatrix,
+                 modelViewMatrix,
+                 [-0.0, 0.0, -6.0]);
+  mat4.rotate(modelViewMatrix,
+              modelViewMatrix,
+              cubeRotationX,
+              [0, 0, 1]);
+  mat4.rotate(modelViewMatrix,
+              modelViewMatrix,
+              cubeRotationY * .7,
+              [0, 1, 0]);
 
-  {
-    const numComponents = 3;
-    const type = gl.FLOAT;
-    const normalize = false;
-    const stride = 0;
-    const offset = 0;
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
-    gl.vertexAttribPointer(
-        programInfo.attribLocations.vertexPosition,
-        numComponents,
-        type,
-        normalize,
-        stride,
-        offset);
-    gl.enableVertexAttribArray(
-        programInfo.attribLocations.vertexPosition);
-  }
-  {
-    const numComponents = 4;
-    const type = gl.FLOAT;
-    const normalize = false;
-    const stride = 0;
-    const offset = 0;
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffers.color);
-    gl.vertexAttribPointer(
-        programInfo.attribLocations.vertexColor,
-        numComponents,
-        type,
-        normalize,
-        stride,
-        offset);
-    gl.enableVertexAttribArray(
-        programInfo.attribLocations.vertexColor);
-  }
+
 
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffers.indices);
 
-  gl.useProgram(programInfo.program);
 
-  gl.uniformMatrix4fv(
-      programInfo.uniformLocations.projectionMatrix,
-      false,
-      projectionMatrix);
+
+
   gl.uniformMatrix4fv(
       programInfo.uniformLocations.modelViewMatrix,
       false,
       modelViewMatrix);
 
-  {
-    const vertexCount = 36;
-    const type = gl.UNSIGNED_SHORT;
-    const offset = 0;
-    gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
-  }
-
-  cubeRotation += deltaTime;
+  gl.drawElements(gl.TRIANGLES, vertexCount, gl.UNSIGNED_SHORT, 0);
 }
 
 function initShaderProgram(gl, vsSource, fsSource) {
