@@ -1,20 +1,51 @@
-li.project {
-	background: rgb(172, 172, 172);
+body {
+	overflow-y: auto;
+}
+
+.parentProjects {
 	position: absolute;
-	top: 50%;
 	left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%) scale(0.55);
+	top: 25%;
+}
+
+ul.projects {
+	position: relative;
+	left: -50%;
+	background-color: #292929;
+}
+
+li.project::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 li.project img {
-	transform: scale(0.8);
-	border: #171717 solid 7px;
 	position: relative;
+	width: 20%;
+	padding: 1vw;
+	padding-left: 0;
+	float: left;
 }
 
-li.project .projecttxt {
-	color: black;
-	font-size: 450%;
-	margin-left: 200px;
+li.project .projectTitle {
+	font-size: 1vw;
+	padding-top: 1vw;
+	color: white;
+}
+
+li.project .projectDsec {
+
+}
+
+li.project .projectLink {
+	font-size: 1vw;
+	margin: 0;
+	padding: 0;
+	margin-right: 1.5vw;
+	color: orange;
+}
+
+li.project .projectLink:visited {
+	color: orange;
 }

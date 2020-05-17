@@ -10,7 +10,7 @@ body {
 	color: white;
 	float: left;
 	text-decoration: none;
-	font-size: 2vw;
+	font-size: 1.5vw;
 }
 
 .active {
@@ -34,7 +34,7 @@ li a.link {
 li a {
 	text-decoration: none;
 	font-weight: 600;
-	font-size: 1.8vw;
+	font-size: 1.3vw;
 	padding: 0.5vw;
 	margin: 0.5vw;
 	margin-right: 2vw;
@@ -47,13 +47,13 @@ ul {
 }
 
 .socialbtn img.itchbtn {
-	width: 6vw;
-	height: 6vw;
+	width: 3vw;
+	height: 3vw;
 }
 
 .socialbtn img:not(.itchbtn) {
-	width: 4.5vw;
-	height: 4.5vw;
+	width: 3vw;
+	height: 3vw;
 }
 
 .socialbtn img {

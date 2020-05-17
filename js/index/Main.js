@@ -218,8 +218,8 @@ function drawScene(gl, programInfo, buffers, deltaTime) {
 
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-  cubeRotationY+=0.1;
-  cubeRotationX+=0.1;
+  cubeRotationY+=deltaTime;
+  cubeRotationX+=deltaTime;
 
 
   const modelViewMatrix = mat4.create();
