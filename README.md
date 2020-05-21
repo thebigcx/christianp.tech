@@ -1,4 +1,4 @@
-# Source Code for my website.
+# Source ode for my website
 
 You can visit is at [thebigcx.github.io](https://thebigcx.github.io).
 
