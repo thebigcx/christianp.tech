@@ -4,7 +4,9 @@ body {
 	font-family: monospace;
 }
 
-
+a {
+	outline: 0;
+}
 
 .logo {
 	color: white;
@@ -25,6 +27,7 @@ body {
 li a.link {
 	float: right;
 	color: grey;
+	transition: 0.5s;
 }
 
 .header {
@@ -77,4 +80,20 @@ ul {
   -moz-animation: fadeIn ease 10s;
   -o-animation: fadeIn ease 10s;
   -ms-animation: fadeIn ease 10s;
+}
+
+.se-pre-con {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	margin: 0;
+	background: #171717;
+}
+
+.se-pre-con-p {
+	font-size: 7vw;
+	font-family: monospace;
+	color: #292c30;
+	text-align: center;
 }
