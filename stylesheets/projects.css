@@ -16,7 +16,8 @@ body {
 ul.projects {
 	position: relative;
 	left: -50%;
-	background-color: #292929;
+	background-color: #1a1a1a;
+	border: solid #ababab 1px;
 	border-radius: 10px;
 }
 
