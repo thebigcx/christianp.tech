@@ -1,7 +1,17 @@
+html {
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	border: 0;
+}
+
 body {
-	background: #171717;
+	/*background: #171717;*/
 	overflow: hidden;
 	font-family: monospace;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-image: linear-gradient(45deg, #171717, #212d36);
 }
 
 a {
@@ -88,7 +98,9 @@ ul {
 	height: 100%;
 	z-index: 9999;
 	margin: 0;
+	padding: 0;
 	background: #171717;
+	/*background-image: linear-gradient(45deg, #171717, #212d36);*/
 }
 
 .se-pre-con-p {
