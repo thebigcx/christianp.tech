@@ -3,6 +3,7 @@ html {
 	overflow: hidden;
 	padding: 0;
 	border: 0;
+	float: none !important;
 }
 
 body {

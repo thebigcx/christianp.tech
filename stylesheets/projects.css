@@ -20,6 +20,10 @@ ul.projects {
 	border-radius: 10px;
 }
 
+li.project {
+	width: 50vw;
+}
+
 li.project::after {
   content: "";
   clear: both;
