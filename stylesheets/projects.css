@@ -1,3 +1,8 @@
+:root {
+	--external-link: #3693a8;
+	--external-link-selected: #24606e;
+}
+
 body {
 	overflow-y: auto;
 }
@@ -11,7 +16,13 @@ body {
 ul.projects {
 	position: relative;
 	left: -50%;
-	background-color: #292929;
+	background-color: #1a1a1a;
+	border: solid #ababab 1px;
+	border-radius: 10px;
+}
+
+li.project {
+	width: 50vw;
 }
 
 li.project::after {
@@ -26,6 +37,7 @@ li.project img {
 	padding: 1vw;
 	padding-left: 0;
 	float: left;
+	border-radius: 20px;
 }
 
 li.project .projectTitle {
@@ -43,9 +55,14 @@ li.project .projectLink {
 	margin: 0;
 	padding: 0;
 	margin-right: 1.5vw;
-	color: orange;
+	transition: 0.5s;
+	color: var(--external-link);
 }
 
 li.project .projectLink:visited {
-	color: orange;
+	color: var(--external-link);
+}
+
+li.project .projectLink:hover {
+	color: var(--external-link-selected);
 }
