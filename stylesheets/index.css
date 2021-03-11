@@ -1,0 +1,99 @@
+body
+{
+    background-color: #111111;
+    font-family: Helvetica;
+    color: white;
+}
+
+#welcomeText
+{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+#welcomeSubtitle
+{
+    color: grey;
+}
+
+.main
+{
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    flex-direction: column;
+    margin-top: 200px;
+}
+
+.content
+{
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    flex-direction: column;
+}
+
+.container
+{
+    text-align: center;
+}
+
+.socialbtns
+{
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+}
+
+.socialbtn
+{
+    font-size: 25px;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+}
+
+.socialbtn:hover
+{
+    background-color: #333333;
+}
+
+.socialbtn:active
+{
+    background-color: #262626;
+}
+
+.buttons
+{
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+}
+
+.btn
+{
+    background-color: #111111;
+    border: 1px solid white;
+    transition-duration: 0.4s;
+    color: white;
+    border-radius: 6px;
+    padding: 10px;
+    width: 100px;
+}
+
+.btn:hover
+{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.btn:active
+{
+    background-color: #666666;
+}
