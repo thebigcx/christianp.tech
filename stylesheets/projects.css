@@ -1,0 +1,69 @@
+.main
+{
+    margin-top: 100px;
+}
+
+#projectsTitle
+{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.projects
+{
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    flex-direction: column;
+}
+
+.project
+{
+    background-color: #111111;
+    border: 1px solid white;
+    transition-duration: 0.4s;
+    color: white;
+    border-radius: 6px;
+    margin-top: 5px;
+    width: 400px;
+}
+
+.project:hover
+{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.project:active
+{
+    background-color: #666666;
+}
+
+.home
+{
+    
+}
+
+.homebtn
+{
+    font-size: 15px;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    background-color: #111111;
+}
+
+.homebtn:hover
+{
+    background-color: #333333;
+    cursor: pointer;
+}
+
+.homebtn:active
+{
+    background-color: #262626;
+}

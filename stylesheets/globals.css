@@ -1,0 +1,30 @@
+body
+{
+    background-color: #111111;
+    font-family: Helvetica;
+    color: white;
+}
+
+.main
+{
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    flex-direction: column;
+    margin-top: 200px;
+}
+
+.content
+{
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    flex-direction: column;
+}
+
+.container
+{
+    text-align: center;
+}
