@@ -28,3 +28,48 @@ body
 {
     text-align: center;
 }
+
+.buttonp-type-1
+{
+    font-size: 15px;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    background-color: #111111;
+}
+
+.button-type-1:hover
+{
+    background-color: #333333;
+    cursor: pointer;
+}
+
+.button-type-1:active
+{
+    background-color: #262626;
+}
+
+.button-type-2
+{
+    background-color: #111111;
+    border: 1px solid white;
+    transition-duration: 0.4s;
+    color: white;
+    border-radius: 6px;
+    padding: 10px;
+    width: 100px;
+}
+
+.button-type-2:hover
+{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.button-type-2:active
+{
+    background-color: #666666;
+}
