@@ -1,4 +1,4 @@
 window.onload = function()
 {
-    document.querySelector("body").removeClass("preload");
+    document.querySelector("body").classList.remove("preload");
 }

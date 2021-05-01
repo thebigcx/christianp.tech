@@ -55,7 +55,7 @@ body
 {
     background-color: #111111;
     border: 1px solid white;
-    transition-duration: 0.4s;
+    transition-duration: 0.3s;
     color: white;
     border-radius: 6px;
     padding: 10px;
@@ -71,7 +71,7 @@ body
 
 .button-type-2:active
 {
-    background-color: #666666;
+    background-color: #b3b3b3;
 }
 
 .preload *
@@ -81,4 +81,34 @@ body
     -moz-transition: none !important;
     -ms-transition: none !important;
     -o-transition: none !important;
+}
+
+.button-type-3
+{
+    background-color: #111111;
+    border: 1px solid #7a7a7a;
+    transition-duration: 0.2s;
+    color: white;
+    border-radius: 6px;
+    padding: 10px;
+    width: 100px;
+}
+
+.button-type-3:hover
+{
+    color: #4d4d4d;
+    cursor: pointer;
+}
+
+.button-type-3:active
+{
+    color: #3d3d3d;
+}
+
+.footer
+{
+    position: fixed;
+    bottom: 0;
+    left: 20px;
+    color: grey;
 }

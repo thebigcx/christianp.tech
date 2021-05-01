@@ -1,0 +1,22 @@
+.main
+{
+    margin-top: 100px;
+}
+
+#title
+{
+    font-size: 45px;
+    font-weight: 800;
+}
+
+#description
+{
+    text-align: left;
+    font-size: 20px;
+}
+
+#desc-div
+{
+    width: 50%;
+    margin: 0 auto;
+}
